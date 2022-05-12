@@ -1,6 +1,13 @@
 # Five-Pizza
 
-### By Reuben Kipkemboi
+### By 
+- Kelvin Wepo
+
+- Norah Waswala
+
+- Charity Mutembei
+
+- Reuben Kipkemboi
 
 ## Table of Content
 
@@ -102,6 +109,7 @@ chmod a+x start.sh
 
 <p align = "center">
     &copy; 2022 @ Five-Pizza
+
     Designed by [Five_Devs](https://gmail.com)
 </p>
 
