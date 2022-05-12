@@ -109,7 +109,10 @@ chmod a+x start.sh
 
 <p align = "center">
     &copy; 2022 @ Five-Pizza
-
-    Designed by [Five_Devs](https://gmail.com)
 </p>
+
+
+
+
+
 
