@@ -1,6 +1,7 @@
 from datetime import datetime
 from flask_login import UserMixin
 from . import db, login_manager
+
 #securing user passwords
 from werkzeug.security import generate_password_hash,check_password_hash
 from . import login_manager
@@ -17,11 +18,11 @@ class User( UserMixin, db.Model):
     username = db.Column(db.String(255))
     useremail = db.Column(db.String(255),unique = True, index = True)
     password_secure = db.Column(db.String(255))
-    pitch_types = db.relationship('Pitch', backref='user', lazy='dynamic')
-    comment = db.relationship('Comment', backref='user', lazy='dynamic')
+    pizza = db.relationship('Pizza', backref='user', lazy='dynamic')
+    toppings = db.relationship('Toppings', backref='user', lazy='dynamic')
     
-    
-    @property  #used to create a write only class property password
+    #used to create a write only class property password
+    @property
     def password(self):
         raise AttributeError('You are not allowed to read passcode')
 
