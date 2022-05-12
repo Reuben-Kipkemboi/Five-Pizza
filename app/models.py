@@ -1,5 +1,6 @@
 from datetime import datetime
 from flask_login import UserMixin
+from sqlalchemy import ForeignKey
 from . import db, login_manager
 
 #securing user passwords
@@ -36,3 +37,22 @@ class User( UserMixin, db.Model):
     
     def __repr__(self):
         return f'User {self.username}'
+     
+#pizza model class 
+class Pizza(db.Model):
+    __tablename__ = 'pizza'
+    id = db.Column(db.Integer, primary_key = True) 
+    pizza_type = db.Column(db.String(255))
+    pizza_price = db.Column(db.Integer)
+    pizza_size = db.Column(db.String(255))
+    user_id = db.Column(db.Integer, ForeignKey('users.id')) 
+    toppings = db.relationship('Toppings', backref='toppings', lazy='dynamic')
+#Toppings model   
+class Toppings(db.Model):
+    __tablename__ = 'toppings'
+    id = db.Column(db.Integer, primary_key = True) 
+    toppings_type = db.Column(db.String(255))
+    toppings_price = db.Column(db.Integer)
+    pizza_id = db.Column(db.Integer, ForeignKey('pizza.id'))
+    user_id = db.Column(db.Integer, ForeignKey('users.id'))
+    

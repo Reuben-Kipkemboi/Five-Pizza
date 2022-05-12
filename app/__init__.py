@@ -19,14 +19,19 @@ def create_app(config_name):
     
     #initializing 
     db.init_app(app)
+    login_manager.init_app(app)
     # bootstap.init_app(app)
     # mail.init_app(app)
     
     
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+    
+    #Registering the authentication blue-print
+    from .authentication import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
 
-    login_manager.init_app(app)
+   
     
     
     return app
