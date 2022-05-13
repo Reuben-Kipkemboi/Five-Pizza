@@ -1,63 +1,55 @@
-
 {%extends 'base.html'%}
 
 {%block content%}
 <div class="container-fluid text-center">
 
-    <div class="spinner-grow text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <div class="spinner-grow text-secondary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <div class="spinner-grow text-success" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <div class="spinner-grow text-danger" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <div class="spinner-grow text-warning" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <div class="spinner-grow text-info" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <div class="spinner-grow text-light" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <div class="spinner-grow text-dark" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
+  <div class="spinner-grow text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="spinner-grow text-secondary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="spinner-grow text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="spinner-grow text-info" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="spinner-grow text-light" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="spinner-grow text-dark" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
 
 </div>
+<!-- <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="pizzas"> -->
 
-
-
-<!-- div class="row row-cols-1 row-cols-md-3 g-4"> -->
-
-        {% for pitch in all_pitches%}
-        <div class="col" id="pitches">
-            <div class="card shadow p-3 mb-5 bg-body rounded">
-                <div class="card-body">
-                    <h4 class="card-title">{{pitch.category}} {{pitch.id}}</h4>
-                    <p class="card-text text-center">"{{pitch.pitchcontent}}"</p>
-                    <a href="/comment/{{pitch.id}}">
-                        <button type="button" class="btn btn-outline-info">Make a comment</button></a>
-                    <br>
-                    <div class="votes mt-3">
-                        <a href="#"><span>Thumbs Up <i class="fa-solid fa-thumbs-up"></i></span></a>
-                        <a href="#"><span><i class="fa-solid fa-thumbs-down ms-5">  </i>Thumbs Down</span></a>
-                    </div>
-                    <div class="card-footer">
-                        <h5> <span>
-                                {{pitch.name}}
-                            </span></h5>
-                        <h5>Date Added: {{pitch.Additiontime.strftime('%Y-%m-%d')}}</h5>
-                    </div>
-                </div>
-            </div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for pizza in all_pizza %}
+  <div class="col" id="pitches">
+    <div class="card shadow p-3 mb-5 bg-body rounded">
+      <div class="card-body">
+        <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="pizzas">
+        <h4 class="card-title">{{pizza.pizza_type}}</h4>
+        <p class="card-text text-center">"{{pizza.description}}"</p>
+        <a href="#">
+          <button type="button" class="btn btn-outline-info">Make Order</button></a>
+        <br>
+        <div class="card-footer">
+          <h5> <span>
+              {{pizza.pizza_price}}
+            </span></h5>
         </div>
-        {%endfor%}
+      </div>
     </div>
+  </div>
+  {%endfor%}
+</div>
 {%endblock%}
->>>>>>> 6bea1491c4817f2c01506cd5f0001d6d73d4c29f

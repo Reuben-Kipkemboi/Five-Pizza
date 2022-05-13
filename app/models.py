@@ -1,4 +1,3 @@
-from datetime import datetime
 from flask_login import UserMixin
 from sqlalchemy import ForeignKey
 from . import db, login_manager
@@ -12,7 +11,6 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 #Users table
-
 class User( UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key = True) 
@@ -53,7 +51,6 @@ class Pizza(db.Model):
         db.session.add(self)
         db.session.commit()
 
-        
     def __repr__(self):
         return f'Pizza {self.pizza_type}'
 

@@ -18,3 +18,11 @@ class PizzaForm(FlaskForm):
 # class CommentForm(FlaskForm):
 #     comment_content = TextAreaField('Provide feedback/Comments', validators=[DataRequired()])
 #     submit = SubmitField('Add Comment')
+
+
+class PitchOrderForm(FlaskForm):
+    category = SelectField('Choose pizza type',choices = [('Cheese Pizza','Cheese Pizza'),('Veggie Pizza','Veggie Pizza'),('Pepperoni Pizza','Pepperoni Pizza'),('Meat Pizza','Meat Pizza'),('Margherita Pizza','Margherita Pizza'),(' Hawaiian Pizza ',' Hawaiian Pizza ')]) 
+    name = TextAreaField('Your Name')
+    title = TextAreaField('title')
+    context = TextAreaField('Pitch itself')
+    submit = SubmitField('Submit')
