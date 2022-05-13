@@ -29,4 +29,33 @@
       </div>
 
 </div>
+
+
+
+<!-- div class="row row-cols-1 row-cols-md-3 g-4"> -->
+
+        {% for pitch in all_pitches%}
+        <div class="col" id="pitches">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-body">
+                    <h4 class="card-title">{{pitch.category}} {{pitch.id}}</h4>
+                    <p class="card-text text-center">"{{pitch.pitchcontent}}"</p>
+                    <a href="/comment/{{pitch.id}}">
+                        <button type="button" class="btn btn-outline-info">Make a comment</button></a>
+                    <br>
+                    <div class="votes mt-3">
+                        <a href="#"><span>Thumbs Up <i class="fa-solid fa-thumbs-up"></i></span></a>
+                        <a href="#"><span><i class="fa-solid fa-thumbs-down ms-5">  </i>Thumbs Down</span></a>
+                    </div>
+                    <div class="card-footer">
+                        <h5> <span>
+                                {{pitch.name}}
+                            </span></h5>
+                        <h5>Date Added: {{pitch.Additiontime.strftime('%Y-%m-%d')}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
 {%endblock%}
