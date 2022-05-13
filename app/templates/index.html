@@ -1,12 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello pizza world</h1>
-</body>
-</html>
+
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="container-fluid text-center">
+
+    <div class="spinner-grow text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-secondary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-dark" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+
+</div>
+
+
+
+<!-- div class="row row-cols-1 row-cols-md-3 g-4"> -->
+
+        {% for pitch in all_pitches%}
+        <div class="col" id="pitches">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-body">
+                    <h4 class="card-title">{{pitch.category}} {{pitch.id}}</h4>
+                    <p class="card-text text-center">"{{pitch.pitchcontent}}"</p>
+                    <a href="/comment/{{pitch.id}}">
+                        <button type="button" class="btn btn-outline-info">Make a comment</button></a>
+                    <br>
+                    <div class="votes mt-3">
+                        <a href="#"><span>Thumbs Up <i class="fa-solid fa-thumbs-up"></i></span></a>
+                        <a href="#"><span><i class="fa-solid fa-thumbs-down ms-5">  </i>Thumbs Down</span></a>
+                    </div>
+                    <div class="card-footer">
+                        <h5> <span>
+                                {{pitch.name}}
+                            </span></h5>
+                        <h5>Date Added: {{pitch.Additiontime.strftime('%Y-%m-%d')}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+{%endblock%}
+>>>>>>> 6bea1491c4817f2c01506cd5f0001d6d73d4c29f
