@@ -1,19 +1,11 @@
 from flask import Flask 
 from config import config_options
-<<<<<<< HEAD
+
 from flask_mail import Mail
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
-
-=======
-
-# from flask_mail import Mail
-from flask_login import LoginManager
-from flask_bootstrap import Bootstrap
-from flask_sqlalchemy import SQLAlchemy
 from flask_uploads import UploadSet,configure_uploads,IMAGES
->>>>>>> c17405af698bc5fde93a5a20fbf12a37dfe7aa6e
 bootstrap = Bootstrap()
 db = SQLAlchemy()
 mail = Mail()
