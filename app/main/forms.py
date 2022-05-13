@@ -10,7 +10,7 @@ from wtforms.validators import DataRequired
 class PizzaForm(FlaskForm):
     name = StringField('Pizza Type ', validators=[DataRequired()])
     price = TextAreaField('pizza Price.',validators = [DataRequired()])
-    description = TextAreaField('Enter Your one minute pitch', validators=[DataRequired()])
+    description = TextAreaField('Select image', validators=[DataRequired()])
     
     category = SelectField('Category', choices=[('Large','large'),('Medium' ,'Medium'),('Small','Small')], validators=[DataRequired()])
     submit = SubmitField('Add pizza')
