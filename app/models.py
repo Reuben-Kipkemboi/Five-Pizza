@@ -45,8 +45,18 @@ class Pizza(db.Model):
     pizza_type = db.Column(db.String(255))
     pizza_price = db.Column(db.Integer)
     pizza_size = db.Column(db.String(255))
+    description = db.Column(db.String(255), nullable = False)
     user_id = db.Column(db.Integer, ForeignKey('users.id')) 
     toppings = db.relationship('Toppings', backref='toppings', lazy='dynamic')
+
+    def save_p(self):
+        db.session.add(self)
+        db.session.commit()
+
+        
+    def __repr__(self):
+        return f'Pizza {self.pizza_type}'
+
 #Toppings model   
 class Toppings(db.Model):
     __tablename__ = 'toppings'
