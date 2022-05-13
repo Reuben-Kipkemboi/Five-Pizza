@@ -50,6 +50,11 @@ class Pizza(db.Model):
     def save_p(self):
         db.session.add(self)
         db.session.commit()
+        
+    @classmethod
+    def get_pizzas(cls,pizza_size):
+        pizzas = Pizza.query.filter_by(pizza_size=pizza_size).all()
+        return pizzas
 
     def __repr__(self):
         return f'Pizza {self.pizza_type}'

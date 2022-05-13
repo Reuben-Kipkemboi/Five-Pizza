@@ -28,16 +28,18 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 
-</div>
-<!-- <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="pizzas"> -->
+
+  <!-- <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="pizzas"> -->
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
   {% for pizza in all_pizza %}
-  <div class="col" id="pitches">
+  <div class="col" id="pizza">
     <div class="card shadow p-3 mb-5 bg-body rounded">
       <div class="card-body">
-        <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="pizzas">
-        <h4 class="card-title">{{pizza.pizza_type}}</h4>
+        <img
+          src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+          alt="pizzas">
+        <h4 class="card-title text-center">{{pizza.pizza_type}}</h4>
         <p class="card-text text-center">"{{pizza.description}}"</p>
         <a href="#">
           <button type="button" class="btn btn-outline-info">Make Order</button></a>
@@ -45,11 +47,100 @@
         <div class="card-footer">
           <h5> <span>
               {{pizza.pizza_price}}
+              {{pizza.pizza_size}}
             </span></h5>
         </div>
       </div>
     </div>
   </div>
-  {%endfor%}
+  {% endfor %}
 </div>
+
+
+
+</div>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" id="pizza">
+    <div class="card shadow p-3 mb-5 bg-body rounded">
+      <div class="card-body">
+        <img
+          src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+          alt="pizzas" style="height: 300px; width:300px;">
+        <h4 class="card-title text-center">Hawaiian</h4>
+        <p class="card-text text-center">Classic Hawaiian Pizza combines pizza sauce, cheese, cooked ham, and pineapple. This crowd-pleasing pizza recipe starts with my homemade pizza crust and is finished with a sprinkle of crispy bacon. It's salty, sweet, cheesy, and undeniably delicious! </p>
+        <br>
+        <div class="card-footer">
+          <h5 class="text-center text-danger"> PRICE :<span class="fst-italic">
+            1500 shillings</span></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="col" id="pizza">
+    <div class="card shadow p-3 mb-5 bg-body rounded">
+      <div class="card-body">
+        <img
+          src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+          alt="pizzas" style="height: 300px; width:300px;">
+        <h4 class="card-title text-center">Meat</h4>
+        <p class="card-text text-center">Homemade thin crust pizza, topped off with two types of cheese, bacon, ham, pepperoni and hot sausage! </p>
+        <br>
+        <div class="card-footer">
+          <h5 class="text-center text-danger"> PRICE :<span class="fst-italic">
+            1800 shillings</span></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 3 -->
+
+  <div class="col" id="pizza">
+    <div class="card shadow p-3 mb-5 bg-body rounded">
+      <div class="card-body">
+        <img
+          src="https://www.aberdeenskitchen.com/wp-content/uploads/2020/08/Cheesy-Pepperoni-Mushroom-Pizza-3.jpg"
+          alt="pizzas" style="height: 300px; width:300px;">
+        <h4 class="card-title text-center">Mushroom Pizza</h4>
+        <p class="card-text text-center">Dough, mozzarella cheese, Italian baked ham, mushroom, artichoke and tomato</p>
+        <br>
+        <div class="card-footer">
+          <h5 class="text-center text-danger"> PRICE :<span class="fst-italic">
+            1250 shillings</span></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <h1 class="text-center">Available pizza</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for pizza in all_pizza %}
+    <div class="col" id="pizza">
+      <div class="card shadow p-3 mb-5 bg-body rounded">
+        <div class="card-body">
+          <img
+            src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+            alt="pizzas">
+          <h4 class="card-title text-center">{{pizza.pizza_type}}</h4>
+          <p class="card-text text-center">"{{pizza.description}}"</p>
+          <a href="#">
+            <button type="button" class="btn btn-outline-info">Make Order</button></a>
+          <br>
+          <div class="card-footer">
+            <h5> <span>
+                {{pizza.pizza_price}}
+                {{pizza.pizza_size}}
+              </span></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+
 {%endblock%}
