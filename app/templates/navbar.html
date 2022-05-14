@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
-    <div class="container-fluid">
-        <div class="spinner-grow text-light" role="status">
+    <div class="container-fluid" >
+        <div class="spinner-grow text-light" role="status" style="margin-right: 1cm;">
             <span class="visually-hidden">Loading...</span>
         </div>
-        <a class="navbar-brand fs-3 " href="/"><span class="text-warning">* Five-</span>-Pizza *<span></span></a>
+        <a class="navbar-brand fs-3 " href="/"><span class="text-warning" >* Five-</span>-Pizza *<span></span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,19 +11,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                    <a class="nav-link" aria-current="page" href="/" style="margin-right: 1cm;"><strong>Home</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('main.pizza')}}" >Pizza Types</a>
+                    <a class="nav-link" href="{{url_for('main.pizza')}}" style="margin-right: 1cm;"><strong>Pizza Types</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('main.toppings')}}">Pricing</a>
+                    <a class="nav-link" href="{{url_for('main.toppings')}}" style="margin-right: 1cm;"><strong>Pricing</strong></a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <a href="/add_new"><button type="button" class="btn btn-outline-info"id = "create">Add Pizza</button></a></li></a>
+                <a href="/add_new"><button type="button" class="btn btn-outline-dark"id = "create" style="border-radius: 3cm; padding: 0.3rem; width: 4cm; background-color: black; color: white; margin-right: 0.5cm;">SIGN-IN</SIGN-IN></button></a></li></a>
                 <span></span>
-                <a href=""><button type="button" class="btn btn-outline-info">LOGIN</button></a>
+                <a href=""><button type="button" class="btn btn-outline-dark" style="border-radius: 3cm; padding: 0.3rem; width: 2cm; background-color: black; color: white; ">LOGIN</button></a>
             </ul>
             <div class="spinner-grow text-warning" role="status">
                 <span class="visually-hidden">Loading...</span>
