@@ -23,6 +23,12 @@ def pizza():
     
     return render_template('pizza.html')
 
+
+@main.route('/menu')
+def menu():
+    
+    return render_template('another.html')
+
 @main.route('/add_new', methods =['POST','GET'])
 # @login_required
 def new_pizza():
