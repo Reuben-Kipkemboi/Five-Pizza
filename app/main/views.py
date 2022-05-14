@@ -21,7 +21,7 @@ def toppings():
 @main.route('/pizza')
 def pizza():
     
-    return render_template('pizza.html')
+    return render_template('another.html')
 
 
 @main.route('/menu')
@@ -32,7 +32,7 @@ def menu():
 @main.route('/add_new', methods =['POST','GET'])
 # @login_required
 def new_pizza():
-    all_pizza = Pizza.query.all()
+
     form = PizzaForm() 
     if form.validate_on_submit():
         pizza_type = form.name.data
@@ -48,4 +48,4 @@ def new_pizza():
         # return redirect(url_for('main.index')) 
     
        
-    return render_template('user.html', form = form,all_pizza=all_pizza)
+    return render_template('user.html', form = form)
