@@ -1,3 +1,4 @@
+from unicodedata import category
 from ..import db
 from flask import render_template,redirect, url_for, flash
 from . import main
@@ -38,14 +39,27 @@ def new_pizza():
         pizza_type = form.name.data
         pizza_price = form.price.data
         description = form.description.data
-        user_id = current_user
-        pizza_size = form.category.data 
-        new_pizza_object = Pizza(pizza_type = pizza_type,pizza_price=pizza_price,description=description, pizza_size=pizza_size)
-        db.session.add(new_pizza_object )
-        db.session.commit()
-        # new_pizza_object.save_p()
-        print("new pizza",new_pizza_object)
-        # return redirect(url_for('main.index')) 
+        category = form.category.data 
+        new_pizza = Pizza(pizza_type = pizza_type,pizza_price=pizza_price,description=description, category = category)
+        
+        new_pizza.save_pizza()
+        return redirect(url_for('main.pizza_display'))
+
+    else:
+        all_pizzas = Pizza.query.all
+
+    return render_template('user.html', form = form, pizzas=all_pizzas)
+
+@main.route('/pizza', methods = ['GET', 'POST'])
+# @login_required
+def pizza_display():
+    '''
+    View page for the pitches created with their data
+    '''
+
+    # pitches= Pitch.get_pitches
+    pizzas = Pizza.query.all()
     
-       
-    return render_template('user.html', form = form)
+
+
+    return render_template('pitches.html', pizzas= pizzas)

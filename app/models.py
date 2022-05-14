@@ -1,10 +1,10 @@
+# from unicodedata import category
 from flask_login import UserMixin
-from sqlalchemy import ForeignKey
 from . import db, login_manager
 
 #securing user passwords
 from werkzeug.security import generate_password_hash,check_password_hash
-from . import login_manager
+# from . import login_manager
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -17,9 +17,8 @@ class User( UserMixin, db.Model):
     username = db.Column(db.String(255))
     useremail = db.Column(db.String(255),unique = True, index = True)
     password_secure = db.Column(db.String(255))
-    pizza = db.relationship('Pizza', backref='user', lazy='dynamic')
-    toppings = db.relationship('Toppings', backref='user', lazy='dynamic')
-    
+    pizzas = db.relationship('Pizza', backref='user', lazy='dynamic')
+    toppings = db.relationship('Toppings',backref = 'user', lazy='dynamic' )
     #used to create a write only class property password
     @property
     def password(self):
@@ -38,26 +37,39 @@ class User( UserMixin, db.Model):
      
 #pizza model class 
 class Pizza(db.Model):
-    __tablename__ = 'pizza'
+    __tablename__ = 'pizzas'
+
+    all_pizzas = []
+
     id = db.Column(db.Integer, primary_key = True) 
     pizza_type = db.Column(db.String(255))
     pizza_price = db.Column(db.Integer)
     pizza_size = db.Column(db.String(255))
     description = db.Column(db.String(255), nullable = False)
-    user_id = db.Column(db.Integer, ForeignKey('users.id')) 
-    toppings = db.relationship('Toppings', backref='toppings', lazy='dynamic')
+    category = db.Column(db.String(255))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id')) 
+    # toppings = db.relationship('Toppings', backref='toppings', lazy='dynamic')
 
-    def save_p(self):
+    def save_pizza(self):
         db.session.add(self)
         db.session.commit()
+
+        Pizza.all_pizzas.append(self)
         
     @classmethod
-    def get_pizzas(cls,pizza_size):
-        pizzas = Pizza.query.filter_by(pizza_size=pizza_size).all()
-        return pizzas
+    def get_pizzas(cls,id):
+
+        response = []
+
+
+        for pizza in cls.all_pizzas:
+            if pizza.user_id==id:           
+                response.append(pizza)
+
+
 
     def __repr__(self):
-        return f'Pizza {self.pizza_type}'
+        return f'Pizza{self.category}'
 
 #Toppings model   
 class Toppings(db.Model):
@@ -65,6 +77,6 @@ class Toppings(db.Model):
     id = db.Column(db.Integer, primary_key = True) 
     toppings_type = db.Column(db.String(255))
     toppings_price = db.Column(db.Integer)
-    pizza_id = db.Column(db.Integer, ForeignKey('pizza.id'))
-    user_id = db.Column(db.Integer, ForeignKey('users.id'))
+    # pizza_id = db.Column(db.Integer, db.ForeignKey('pizza.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
