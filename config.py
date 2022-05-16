@@ -1,7 +1,7 @@
 import os
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/dbpizza'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://norah:123we@localhost/pizza'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
     SECRET_KEY=os.environ.get('SECRET_KEY')
     UPLOADED_PHOTOS_DEST ='app/static/photos'

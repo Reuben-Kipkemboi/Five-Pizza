@@ -2,9 +2,9 @@ from flask import render_template,redirect, url_for, flash
 from . import main
 from ..models import User, Pizza,Toppings
 from .forms import PizzaForm
-# from .. import db,photos
+from .. import db
 # we want to access the login functionality for some features eg voting and making a pitch
-from flask_login import login_required
+from flask_login import current_user, login_required
 
 @main.route('/')
 def index():
@@ -35,14 +35,16 @@ def pizza():
 # @login_required
 def new_pizza():
     form = PizzaForm() 
-    # if form.validate_on_submit():
-    #     pizza_type = form.name.data
-    #     pizza_price = form.price.data
-    #     category = form.category.data
-    #     user_id = current_user
-    #     new_pitch_object = Pitch( name = name, pitchcontent=pitchcontent,user_id=current_user._get_current_object().id,category=category)
-    #     new_pitch_object.save_pitch()
-    #     return redirect(url_for('main.index'))
+    if form.validate_on_submit():
+        pizza_type = form.name.data
+        pizza_price = form.price.data
+        description = form.description.data
+        users_id = current_user
+        new_pizza_object = Pizza(pizza_type = pizza_type,pizza_price=pizza_price,user_id=current_user._get_current_object().pizza_id,description=description)
+        # new_pizza_object.save_p()
+        db.session.add(new_pizza_object)
+        db.session.commit()
+        return redirect(url_for('main.index'))
         
     return render_template('user.html', form = form)
 

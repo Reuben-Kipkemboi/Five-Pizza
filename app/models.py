@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask_login import UserMixin
-from sqlalchemy import ForeignKey
+# from sqlalchemy import ForeignKey
 from . import db, login_manager
 
 #securing user passwords
@@ -46,14 +46,17 @@ class Pizza(db.Model):
     pizza_price = db.Column(db.Integer)
     pizza_size = db.Column(db.String(255))
     description = db.Column(db.String(255), nullable = False)
-    user_id = db.Column(db.Integer, ForeignKey('users.id')) 
-    toppings = db.relationship('Toppings', backref='toppings', lazy='dynamic')
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id')) 
+   
 
     def save_p(self):
         db.session.add(self)
         db.session.commit()
 
-        
+    @classmethod
+    def get_pizzas(cls,pizza_size):
+        pizzas = Pizza.query.filter_by(pizza_size=pizza_size).all()
+        return pizzas   
     def __repr__(self):
         return f'Pizza {self.pizza_type}'
 
@@ -63,6 +66,6 @@ class Toppings(db.Model):
     id = db.Column(db.Integer, primary_key = True) 
     toppings_type = db.Column(db.String(255))
     toppings_price = db.Column(db.Integer)
-    pizza_id = db.Column(db.Integer, ForeignKey('pizza.id'))
-    user_id = db.Column(db.Integer, ForeignKey('users.id'))
+    
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
